@@ -2,18 +2,18 @@
 using UnityEngine;
 
 namespace PlayerCompo {
-    public class PlayerMover : MonoBehaviour, IPlayerModule {
+    public class Mover : MonoBehaviour, IPlayerModule {
         private float _moveDir;
         private bool _canMove = true;
         
         private Player _player;
 
         private void Start() {
-            _player.GetModule<PlayerInput>().OnMoveInput += SetMoveDir;
+            _player.GetModule<InputReceiver>().OnMoveInput += SetMoveDir;
         }
 
         private void OnDestroy() {
-            _player.GetModule<PlayerInput>().OnMoveInput -= SetMoveDir;
+            _player.GetModule<InputReceiver>().OnMoveInput -= SetMoveDir;
         }
 
         public void Initialize(Player player) {
