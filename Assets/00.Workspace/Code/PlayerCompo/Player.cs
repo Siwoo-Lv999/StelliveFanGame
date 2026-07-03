@@ -44,6 +44,7 @@ namespace PlayerCompo {
             
             CurrentHp -= 1;
             StartCoroutine(GetDamageCooldown());
+            _canGetDamage = false;
 
             //UI업데이트 이벤트 호출
         }

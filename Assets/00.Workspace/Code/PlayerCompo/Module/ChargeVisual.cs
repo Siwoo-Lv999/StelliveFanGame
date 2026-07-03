@@ -24,6 +24,7 @@ namespace PlayerCompo {
         }
 
         private void StartChangeVisual() {
+            DOTween.Complete(RecoverSquashId);
             DOTween.Kill(ChargeSquashId);
             DOTween.Kill(RecoverSquashId);
             
@@ -34,11 +35,10 @@ namespace PlayerCompo {
         }
 
         private void EndChangeVisual() {
-            DOTween.Complete(RecoverSquashId);
             DOTween.Kill(RecoverSquashId);
             DOTween.Kill(ChargeSquashId);
             
-            transform.DOScale(Vector3.one, recoverTime).SetId(ChargeSquashId);
+            transform.DOScale(Vector3.one, recoverTime).SetId(RecoverSquashId);
         }
 
         public void Initialize(Player player) {
