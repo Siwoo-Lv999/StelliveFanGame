@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,11 +10,15 @@ namespace PlayerCompo {
         [field: SerializeField] public int CurrentHp { get; private set; }
 
         [SerializeField] private int maxHp = 3;
+        [SerializeField] private float getDamageCooldownTime = 1f;
         
         private Dictionary<Type, IPlayerModule> _modulesDictionary;
+        private bool _canGetDamage = true;
+        private WaitForSeconds _getDamageCooldown;
 
         private void Awake() {
             CurrentHp = maxHp;
+            _getDamageCooldown = new WaitForSeconds(getDamageCooldownTime);
             _modulesDictionary = new Dictionary<Type, IPlayerModule>();
             
             IPlayerModule[] modules = GetComponentsInChildren<IPlayerModule>();
@@ -35,8 +40,17 @@ namespace PlayerCompo {
         }
 
         public void GetDamage() {
+            if (!_canGetDamage) return;
+            
             CurrentHp -= 1;
+            StartCoroutine(GetDamageCooldown());
+
             //UI업데이트 이벤트 호출
+        }
+
+        private IEnumerator GetDamageCooldown() {
+            yield return _getDamageCooldown;
+            _canGetDamage = true;
         }
     }
 }

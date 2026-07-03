@@ -403,6 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 593304351}
   - component: {fileID: 593304352}
+  - component: {fileID: 593304353}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -471,6 +472,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &593304353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593304350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acc327846c64164b1d81f818a0bcfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCompo.HitBox
 --- !u!1 &809388918
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCompo.Player
   <RbCompo>k__BackingField: {fileID: 1203674255}
   <MoveSpeed>k__BackingField: 6
+  <CurrentHp>k__BackingField: 0
+  maxHp: 3
+  getDamageCooldownTime: 1
 --- !u!1 &1337499424
 GameObject:
   m_ObjectHideFlags: 0
