@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace _00.Workspace.Code.CoreSystem {
+namespace CoreSystem {
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour {
         private static T _instance;
 

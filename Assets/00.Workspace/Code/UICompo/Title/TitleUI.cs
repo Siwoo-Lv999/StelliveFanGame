@@ -1,8 +1,7 @@
 ﻿using Manager;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-namespace UICompo.Title {
+namespace TitleUI {
     public class TitleUI : MonoBehaviour {
         
         

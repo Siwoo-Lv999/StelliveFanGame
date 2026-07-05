@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 
 namespace PlayerCompo {
@@ -16,10 +17,14 @@ namespace PlayerCompo {
         private bool _canGetDamage = true;
         private WaitForSeconds _getDamageCooldown;
 
+        public event Action OnDamaged;
+
         private void Awake() {
             CurrentHp = maxHp;
             _getDamageCooldown = new WaitForSeconds(getDamageCooldownTime);
             _modulesDictionary = new Dictionary<Type, IPlayerModule>();
+            
+            GameManager.Instance.SetPlayer(this);
             
             IPlayerModule[] modules = GetComponentsInChildren<IPlayerModule>();
 
@@ -46,7 +51,7 @@ namespace PlayerCompo {
             StartCoroutine(GetDamageCooldown());
             _canGetDamage = false;
 
-            //UI업데이트 이벤트 호출
+            OnDamaged?.Invoke();
         }
 
         private IEnumerator GetDamageCooldown() {

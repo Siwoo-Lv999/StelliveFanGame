@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using _00.Workspace.Code.CoreSystem;
+using CoreSystem;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
