@@ -25,7 +25,6 @@ namespace Manager {
 
             if (_gameModulesDict.TryGetValue(type, out MonoBehaviour module))
                 return module as T;
-            
 
             return null;
         }
