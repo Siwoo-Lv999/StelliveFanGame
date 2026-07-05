@@ -12,7 +12,7 @@ namespace PlayerUI {
         private Player _player;
 
         private void Start() {
-            _player = GameManager.Instance.Player;
+            _player = GameManager.Instance.GetGameModule<Player>();
             
             for (int i = 0; i < _player.CurrentHp; i++) {
                 GameObject hpImage = Instantiate(hpImagePrefab, transform);

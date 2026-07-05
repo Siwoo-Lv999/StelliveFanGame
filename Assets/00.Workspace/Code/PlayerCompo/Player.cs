@@ -24,7 +24,7 @@ namespace PlayerCompo {
             _getDamageCooldown = new WaitForSeconds(getDamageCooldownTime);
             _modulesDictionary = new Dictionary<Type, IPlayerModule>();
             
-            GameManager.Instance.SetPlayer(this);
+            GameManager.Instance.SetMeModule(this);
             
             IPlayerModule[] modules = GetComponentsInChildren<IPlayerModule>();
 
