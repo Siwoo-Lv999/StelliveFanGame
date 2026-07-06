@@ -6,15 +6,16 @@ using UnityEngine;
 
 namespace Manager {
     public class GameManager : MonoSingleton<GameManager> {
-        private Dictionary<Type, MonoBehaviour> _gameModulesDict;
+        private Dictionary<Type, MonoBehaviour> _gameModulesDict = new Dictionary<Type, MonoBehaviour>();
 
         protected override void Awake() {
             base.Awake();
-            _gameModulesDict = new Dictionary<Type, MonoBehaviour>();
         }
 
         public void SetMeModule(MonoBehaviour module) {
             Type type = module.GetType();
+            if (_gameModulesDict == null)
+                _gameModulesDict = new Dictionary<Type, MonoBehaviour>();
             
             if(!_gameModulesDict.TryAdd(type, module))
                 Debug.LogWarning("Dictionary already have this Module");

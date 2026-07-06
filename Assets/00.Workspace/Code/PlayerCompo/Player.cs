@@ -24,8 +24,6 @@ namespace PlayerCompo {
             _getDamageCooldown = new WaitForSeconds(getDamageCooldownTime);
             _modulesDictionary = new Dictionary<Type, IPlayerModule>();
             
-            GameManager.Instance.SetMeModule(this);
-            
             IPlayerModule[] modules = GetComponentsInChildren<IPlayerModule>();
 
             foreach (IPlayerModule module in modules) {
@@ -33,6 +31,10 @@ namespace PlayerCompo {
                 _modulesDictionary.Add(type, module);
                 module.Initialize(this);
             }
+        }
+
+        private void Start() {
+            GameManager.Instance.SetMeModule(this); 
         }
 
         public T GetModule<T>() where T : class, IPlayerModule {

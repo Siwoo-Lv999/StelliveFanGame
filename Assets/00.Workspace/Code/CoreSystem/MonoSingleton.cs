@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CoreSystem {
     public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour {

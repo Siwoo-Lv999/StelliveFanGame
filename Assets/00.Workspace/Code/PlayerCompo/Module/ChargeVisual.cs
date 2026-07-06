@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace PlayerCompo {
@@ -12,7 +11,10 @@ namespace PlayerCompo {
         [SerializeField] private float recoverTime = 0.1f;
         
         private Player _player;
-
+        
+        //플레이어의 스케일이 바뀌면서 피봇의 위치가 바뀜 -> 점프 게이지가 땅 속으로 들어가게 됨
+        //공중에서 UI 안보이게 개선해야함
+        
         private void Start() {
             _player.GetModule<InputReceiver>().OnJumpStart += StartChangeVisual;
             _player.GetModule<InputReceiver>().OnJumpEnd += EndChangeVisual;
