@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace PlayerCompo {
-    public class InputReceiver : MonoBehaviour,IPlayerModule , Controls.IPlayerActions {
+    public class InputReceiver : MonoBehaviour, IPlayerModule, Controls.IPlayerActions {
         public event Action<float> OnMoveInput;
         public event Action OnJumpStart;
         public event Action OnJumpEnd;

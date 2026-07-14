@@ -15,7 +15,7 @@ namespace CoreSystem {
 
         protected virtual void Awake() {
             T[] managers = FindObjectsByType<T>(FindObjectsSortMode.None);
-            if (managers.Length > 1) 
+            if (managers.Length > 1)
                 Destroy(gameObject);
         }
 

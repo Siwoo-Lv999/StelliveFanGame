@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - DestoryVFX
   - 
   - 
   - 
@@ -46,8 +46,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Object
+    uniqueID: 1335609293
+    locked: 0
   - name: Agent
     uniqueID: 3106925243
+    locked: 0
+  - name: VFX
+    uniqueID: 2321891307
     locked: 0
   m_RenderingLayers:
   - Default

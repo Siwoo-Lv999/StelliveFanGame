@@ -7,7 +7,7 @@ namespace PlayerCompo {
         private bool _canMove = true;
         
         private Player _player;
-
+        
         private void Start() {
             _player.GetModule<InputReceiver>().OnMoveInput += SetMoveDir;
         }

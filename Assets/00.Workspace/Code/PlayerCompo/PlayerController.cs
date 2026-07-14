@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Manager;
 using UnityEngine;
 
@@ -22,13 +23,12 @@ namespace PlayerCompo {
         private void Awake() {
             CurrentHp = maxHp;
             _getDamageCooldown = new WaitForSeconds(getDamageCooldownTime);
-            _modulesDictionary = new Dictionary<Type, IPlayerModule>();
-            
-            IPlayerModule[] modules = GetComponentsInChildren<IPlayerModule>();
+            //_modulesDictionary = new Dictionary<Type, IPlayerModule>();
 
-            foreach (IPlayerModule module in modules) {
-                Type type = module.GetType();
-                _modulesDictionary.Add(type, module);
+            //IPlayerModule[] modules = GetComponentsInChildren<IPlayerModule>();
+            _modulesDictionary = GetComponentsInChildren<IPlayerModule>().ToDictionary(module => module.GetType());
+
+            foreach (IPlayerModule module in _modulesDictionary.Values) {
                 module.Initialize(this);
             }
         }
